@@ -10,15 +10,16 @@ Sitio estático listo para publicar en Cloudflare Pages. No requiere framework, 
 4. Usa estos valores:
 
    - **Framework preset:** None
-   - **Build command:** dejar vacío
+   - **Build command:** `exit 0` (o dejar vacío)
    - **Build output directory:** `.`
    - **Root directory:** `/` (la raíz del repositorio)
+   - **Deploy command:** dejar vacío. Pages publica automáticamente el resultado del build.
 
 5. Guarda y despliega.
 
 ## Publicar desde la terminal
 
-Con Wrangler instalado o usando `npx`:
+Para una publicación manual fuera de la integración Git, usando Wrangler:
 
 ```bash
 npx wrangler login
@@ -27,6 +28,8 @@ npx wrangler pages deploy . --project-name romina-portafolio
 ```
 
 El primer comando abre el inicio de sesión de Cloudflare. Si el proyecto de Pages ya existe, omite `pages project create`.
+
+No uses `npx wrangler deploy`: ese comando intenta publicar un Worker y no un proyecto de Cloudflare Pages.
 
 ## Dominio personalizado
 
